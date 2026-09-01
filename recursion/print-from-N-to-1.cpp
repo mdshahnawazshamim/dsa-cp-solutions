@@ -2,12 +2,11 @@
 using namespace std;
 
 void print(int N)
-{   
-    if(N==1)
-    {
-        cout<<1<<"\n";return;
-    }
-    print(N-1);cout<<N<<"\n";
+{
+    cout<<N;
+    if(N==1){return;}
+    cout<<" ";
+    print(N-1);
     
 }
 
@@ -16,5 +15,5 @@ int main() {
 	int N;cin>>N;
 	
 	print(N);
-	
 }
+
