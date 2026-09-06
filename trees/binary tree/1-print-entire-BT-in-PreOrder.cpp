@@ -5,7 +5,7 @@ void preOrder(Node* root)
   if(root == nullptr)
   {return};
 
-  print(root->data);
+  cout<<(root->data)<<" ";
   preOrder(root->left);
   preOrder(root->right);
   
