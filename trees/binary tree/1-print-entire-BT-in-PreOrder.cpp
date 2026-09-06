@@ -10,3 +10,4 @@ void preOrder(Node* root)
   preOrder(root->right);
   
 }
+//Inorder and postOrder traversal could be done similarly
