@@ -178,4 +178,109 @@ Consider this tree:
 | Inorder | Left → Root → Right | 20 30 40 50 60 70 80 |
 | Preorder | Root → Left → Right | 50 30 20 40 70 60 80 |
 | Postorder | Left → Right → Root | 20 40 30 60 80 70 50 |
-| Level order | Level by level | 50 30 70 20 40 
+| Level order | Level by level | 50 30 70 20 40 60 80 |
+
+**Important:** Inorder traversal of a BST produces values in sorted ascending order when keys are distinct.
+
+### C++ Traversal Code
+
+```cpp
+void inorder(Node* root) {
+    if (root == nullptr) return;
+
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
+void preorder(Node* root) {
+    if (root == nullptr) return;
+
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
+void postorder(Node* root) {
+    if (root == nullptr) return;
+
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->data << " ";
+}
+```
+
+## 8. Time Complexity
+
+Let `n` be the number of nodes and `h` be the height of the tree.
+
+| Operation | Average case | Worst case |
+|---|---:|---:|
+| Search | O(log n) | O(n) |
+| Insertion | O(log n) | O(n) |
+| Deletion | O(log n) | O(n) |
+| Traversal | O(n) | O(n) |
+| Find minimum/maximum | O(log n) | O(n) |
+
+A BST does **not** automatically remain balanced.
+
+### Why can the worst case be O(n)?
+
+If we insert values in ascending order, such as `10, 20, 30, 40, 50`, the tree becomes skewed:
+
+```text
+10
+  \
+   20
+     \
+      30
+        \
+         40
+           \
+            50
+```
+
+Searching can then require visiting every node.
+
+Balanced BSTs, such as AVL trees and Red-Black trees, maintain logarithmic height through additional balancing rules.
+
+## 9. Applications of BSTs
+
+- Maintaining data in sorted order.
+- Efficient searching, insertion and deletion in dynamic data.
+- Finding minimum and maximum elements.
+- Finding predecessor and successor values.
+- Implementing ordered sets and maps.
+- Range queries and sorted data processing.
+
+## 10. Key Points for Competitive Programming
+
+- Inorder traversal of a BST gives sorted output.
+- A BST can become skewed, so ordinary BST operations are not always O(log n).
+- Insertion order affects the tree's shape.
+- Deletion with two children commonly uses the inorder successor.
+- Searching follows only one path from the root.
+- A BST is not the same as a binary heap.
+- An empty tree has height `-1` under the edge-count convention used in these notes; some sources use a different convention.
+
+## 11. Practice Questions
+
+Try solving these without looking at the implementation first:
+
+1. Insert `50, 30, 70, 20, 40, 60, 80` into an empty BST and draw the result.
+2. Find the inorder, preorder and postorder traversals of the resulting tree.
+3. Search for `60` and write the path followed.
+4. Delete a leaf node, a node with one child, and a node with two children.
+5. Explain why sorted insertion can make a BST inefficient.
+6. Find the minimum and maximum values in a BST.
+7. Construct a BST from a given preorder traversal.
+
+---
+
+**Quick revision:** BST property = Left < Root < Right. Inorder = sorted order. Search, insertion and deletion take O(h), where `h` is the tree height. In the worst case, `h = O(n)`.
+
+
+A BST is not the same as a binary heap.
+
+An empty tree has height -1 under the edge-count convention used in these notes; some sources use a different convention.
+
