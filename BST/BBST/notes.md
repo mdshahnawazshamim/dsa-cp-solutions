@@ -4,6 +4,8 @@
 
 A **Balanced Binary Search Tree (BBST)** is a Binary Search Tree that maintains its height approximately logarithmic in the number of nodes, allowing efficient searching, insertion, and deletion.
 
+If a Balanced Binary Search Tree has n nodes, then its height would be log₂(n)
+
 A normal BST can become skewed if values are inserted in sorted order. A BBST uses balancing rules to prevent this from happening.
 
 ### Example
@@ -61,21 +63,29 @@ A BBST does not necessarily have exactly equal numbers of nodes on both sides.
 
 ### 4.1 AVL Tree
 
-An AVL tree is a self-balancing BST in which the height difference between the left and right subtrees of every node is at most one.
+An AVL tree is a self-balancing Binary Search Tree (BST) in which the height difference between the left and right subtrees of every node is at most one.
 
-Its balance factor is:
+### Balance Factor (BF)
 
-\[
-BF = H_{\text{left}}-H_{\text{right}}
-\]
+The balance factor of a node is calculated as:
 
-For a valid AVL tree:
+**BF = Height of Left Subtree − Height of Right Subtree**
 
-\[
-BF \in \{-1,0,+1\}
-\]
+For every node in a valid AVL tree:
 
-If a node's balance factor becomes less than -1 or greater than +1 after insertion or deletion, the tree needs rebalancing.
+**BF = -1, 0, or +1**
+
+- **BF = -1:** The right subtree is one level taller.
+- **BF = 0:** Both subtrees have equal heights.
+- **BF = +1:** The left subtree is one level taller.
+
+### AVL Balance Condition
+
+For every node:
+
+**|Height of Left Subtree − Height of Right Subtree| ≤ 1**
+
+If any node's balance factor becomes less than -1 or greater than +1 after insertion or deletion, the tree violates the AVL balance condition and requires rebalancing through rotations.
 
 ### 4.2 Red-Black Tree
 
