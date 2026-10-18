@@ -7,6 +7,8 @@ A **Binary Search Tree (BST)** is a special type of binary tree in which each no
 - **Left subtree:** Contains values smaller than the node's value.
 - **Right subtree:** Contains values greater than the node's value.
 - Both left and right subtrees must also follow the BST property.
+- Generally values are distinct in a BST, but in case values are repetitive, keep them one side
+- for ex: keeping repetitive values on the left, then (LST<=Node<=RST).
 
 **Example:**
 
